@@ -5,9 +5,10 @@ Rails.application.routes.draw do
       get :followers, :following
     end
   end
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
-  
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :microposts,    only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+
   match '/help', to: 'static_pages#help', via: :get
   match '/contact', to: 'static_pages#contact', via: :get
   match '/about', to: 'static_pages#about', via: :get
